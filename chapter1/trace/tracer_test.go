@@ -2,7 +2,6 @@ package trace
 
 import (
 	"bytes"
-	"golang.org/x/net/trace"
 	"testing"
 )
 
@@ -12,7 +11,7 @@ func TestNew(t *testing.T){
 	if tracer == nil {
 		t.Error("Return from New should not be nil")
 	} else {
-		trace.Trace("Hello trace package.")
+		tracer.Trace("Hello trace package.")
 		if buf.String() != "Hello trace package.\n" {
 			t.Errorf("Trace should not write '%s'.", buf.String())
 		}
